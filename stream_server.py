@@ -1,20 +1,17 @@
 import asyncio
 import websockets
-from gpt_stream import stream_chat_response
-from eleven import stream_tts_audio
 
 async def handler(websocket, path):
-    print("New Twilio stream connected.")
-    prompt = "Hej! Har du en minut?"
+    print("Client connected")
+    async for message in websocket:
+        print("Received:", message)
+        await websocket.send("Echo: " + message)
 
-    try:
-        async for word in stream_chat_response(prompt):
-            async for audio_chunk in stream_tts_audio(word):
-                await websocket.send(audio_chunk)
-    except Exception as e:
-        print("Error:", e)
+async def main():
+    # Start WebSocket server
+    async with websockets.serve(handler, "0.0.0.0", 10001):
+        print("WebSocket server started on port 10001")
+        await asyncio.Future()  # run forever
 
-start_server = websockets.serve(handler, "0.0.0.0", 10001)
-
-asyncio.get_event_loop().run_until_complete(start_server)
-asyncio.get_event_loop().run_forever()
+if __name__ == "__main__":
+    asyncio.run(main())
