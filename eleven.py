@@ -1,4 +1,4 @@
-from elevenlabs import stream, Voice, VoiceSettings, Elevenlabs
+from elevenlabs import stream, Voice, VoiceSettings, ElevenLabs
 import os
 
 elevenlabs_client = ElevenLabs(
