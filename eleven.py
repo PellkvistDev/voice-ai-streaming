@@ -2,7 +2,7 @@ from elevenlabs import stream, Voice, VoiceSettings, Elevenlabs
 import os
 
 elevenlabs_client = ElevenLabs(
-    api_key="sk_2298d3907994dc6225854c594ed8a9ccd07aa1dfffcad031"
+    api_key=os.getenv("ELEVEN_API_KEY")
 )
 
 swedish_voice = Voice(
