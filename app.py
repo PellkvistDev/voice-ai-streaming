@@ -7,7 +7,7 @@ def voice():
     return Response("""
     <Response>
         <Start>
-            <Stream url="wss://your-ws-domain.onrender.com/audio" />
+            <Stream url="wss://your-websocket-server.onrender.com/audio" />
         </Start>
         <Say voice="Polly.Mia" language="sv-SE">
             Hej! Du pratar med Mohammed från Theos höbalar AB.
