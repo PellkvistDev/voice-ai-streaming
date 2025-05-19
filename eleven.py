@@ -6,7 +6,7 @@ elevenlabs_client = ElevenLabs(
 )
 
 swedish_voice = Voice(
-    voice_id="your-swedish-voice-id",  # e.g., premade or cloned
+    voice_id="bVMeCyTHy58xNoL34h3p",  # e.g., premade or cloned
     settings=VoiceSettings(stability=0.5, similarity_boost=0.8)
 )
 
