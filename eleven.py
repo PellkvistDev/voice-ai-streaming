@@ -1,7 +1,9 @@
-from elevenlabs import stream, Voice, VoiceSettings, set_api_key
+from elevenlabs import stream, Voice, VoiceSettings, Elevenlabs
 import os
 
-set_api_key(os.getenv("ELEVEN_API_KEY"))
+elevenlabs_client = ElevenLabs(
+    api_key="sk_2298d3907994dc6225854c594ed8a9ccd07aa1dfffcad031"
+)
 
 swedish_voice = Voice(
     voice_id="your-swedish-voice-id",  # e.g., premade or cloned
@@ -12,5 +14,5 @@ def stream_tts_audio(text):
     yield from stream(
         text=text,
         voice=swedish_voice,
-        model="eleven_monolingual_v1"
+        model="eleven_flash_v2"
     )
